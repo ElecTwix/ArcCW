@@ -19,12 +19,12 @@ function ArcCW.Sway(cmd)
             sway = sway * (wpn.BipodDispersion * wpn:GetBuff_Mult("Mult_BipodDispersion"))
         end
         if sway > 0.05 then
-            ang.p = math.Clamp(ang.p + math.sin(CurTime() * 1.25) * FrameTime() * sway, -89, 89)
+            ang.p = math.Clamp(ang.p + math.sin(RealTime() * 1.25) * RealFrameTime() * sway, -89, 89)
 
-            ArcCW.SwayDir = ArcCW.SwayDir + math.Rand(-360, 360) * FrameTime() / math.min(sway, 1)
+            ArcCW.SwayDir = ArcCW.SwayDir + math.Rand(-360, 360) * RealFrameTime() / math.min(sway, 1)
 
-            ang.p = ang.p + math.sin(ArcCW.SwayDir) * FrameTime() * sway
-            ang.y = ang.y + math.cos(ArcCW.SwayDir) * FrameTime() * sway
+            ang.p = ang.p + math.sin(ArcCW.SwayDir) * RealFrameTime() * sway
+            ang.y = ang.y + math.cos(ArcCW.SwayDir) * RealFrameTime() * sway
 
             -- ang.p = ang.p + math.Rand(-1, 1) * FrameTime() * sway
             -- ang.y = ang.y + math.Rand(-1, 1) * FrameTime() * sway
